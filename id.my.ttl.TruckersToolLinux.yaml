@@ -69,4 +69,4 @@ modules:
         dest: electron-cache
         dest-filename: electron-v40.8.5-linux-x64.zip
 
-      - flatpak/flatpak-node-sources.json
+      - flatpak-node-sources.json
