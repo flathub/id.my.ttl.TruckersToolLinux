@@ -18,6 +18,14 @@ finish-args:
   - --socket=fallback-x11
   - --socket=wayland
   - --device=dri
+  # Filesystem permissions for ETS2 and ATS profiles (Read/Write required for editing profiles)
+  # Standard Native Linux locations
+  - --filesystem=~/.local/share/Euro Truck Simulator 2:rw
+  - --filesystem=~/.local/share/American Truck Simulator:rw
+  # Proton prefixes (Steam Play) for Native Steam
+  # (Note: Specific paths are used to minimize access)
+  - --filesystem=~/.steam/steam/steamapps/compatdata/227300/pfx/drive_c/users/steamuser/Documents/Euro Truck Simulator 2:rw
+  - --filesystem=~/.steam/steam/steamapps/compatdata/270880/pfx/drive_c/users/steamuser/Documents/American Truck Simulator:rw
   - --env=ELECTRON_TRASH=gio
 
 build-options:
@@ -43,8 +51,8 @@ modules:
       
       - cp -a release/linux-unpacked /app/main
       
-      # Install files from the upstream source (cloned into build dir)
       - install -Dm755 flatpak/run.sh -t /app/bin/
+      
       - install -Dm644 flatpak/id.my.ttl.TruckersToolLinux.desktop -t /app/share/applications/
       - install -Dm644 flatpak/id.my.ttl.TruckersToolLinux.metainfo.xml -t /app/share/metainfo/
       
@@ -53,7 +61,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/efzynx/truckers-tool-linux.git
-        commit: 81b638c4c3042199659510a51f08f0ac01529780
+        commit: b3a03bd084267b3fcd35e397171eeed21af71058
         
       - type: file
         url: https://github.com/electron/electron/releases/download/v40.8.5/electron-v40.8.5-linux-x64.zip
@@ -61,5 +69,4 @@ modules:
         dest: electron-cache
         dest-filename: electron-v40.8.5-linux-x64.zip
 
-      # Metadata files now come directly from the git source (flatpak/ directory)
       - flatpak-node-sources.json
