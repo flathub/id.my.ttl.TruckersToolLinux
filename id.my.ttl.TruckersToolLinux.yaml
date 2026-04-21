@@ -22,10 +22,6 @@ finish-args:
   # Standard Native Linux locations
   - --filesystem=~/.local/share/Euro Truck Simulator 2:rw
   - --filesystem=~/.local/share/American Truck Simulator:rw
-  # Proton prefixes (Steam Play) for Native Steam
-  # (Note: Specific paths are used to minimize access)
-  - --filesystem=~/.steam/steam/steamapps/compatdata/227300/pfx/drive_c/users/steamuser/Documents/Euro Truck Simulator 2:rw
-  - --filesystem=~/.steam/steam/steamapps/compatdata/270880/pfx/drive_c/users/steamuser/Documents/American Truck Simulator:rw
   - --env=ELECTRON_TRASH=gio
 
 build-options:
@@ -61,7 +57,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/efzynx/truckers-tool-linux.git
-        commit: b3a03bd084267b3fcd35e397171eeed21af71058
+        commit: 59181cf7e93c7ef2cc01a01e997b73fb8fd369fb
         
       - type: file
         url: https://github.com/electron/electron/releases/download/v40.8.5/electron-v40.8.5-linux-x64.zip
