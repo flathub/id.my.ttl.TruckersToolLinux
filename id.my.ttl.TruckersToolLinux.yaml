@@ -58,7 +58,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/efzynx/truckers-tool-linux.git
-        commit: 94854b324266eea6f2ac62379b0ee2fcf55a4771
+        commit: 8585ce1b1fb10b68af695646028064d5df91cacd
         
       - type: file
         url: https://github.com/electron/electron/releases/download/v40.8.5/electron-v40.8.5-linux-x64.zip
